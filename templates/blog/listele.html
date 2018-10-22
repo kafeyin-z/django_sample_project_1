@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="col-md-10">
+            <table class="table table-responsive">
+                {% for post in posts %}
+                    <tr>
+                        <td><a href="{% url 'blog-detay' post.pk %}">{{ post.id }}</a></td>
+                        {% if post.image %}
+                            <td><img width="100" height="75" src="{{ post.get_image }}"></td>
+                        {% else %}
+                            <td><img width="100" height="75" src="https://via.placeholder.com/100x75"></td>
+                        {% endif %}
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.content }}</td>
+                        <td>{{ post.created_date }}</td>
+                        <td>{{ post.update_date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

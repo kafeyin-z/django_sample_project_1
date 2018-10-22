@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="col-md-6">
+            {% if post.image %}
+                <div class="row"><img height="250" src="{{ post.get_image }}"></div>
+            {% else %}
+                <div class="row"><img height="250" src="https://via.placeholder.com/350x150"></div>
+            {% endif %}
+            <div class="row">Başlık : {{ post.title }}</div>
+            <div class="row">İçerik : {{ post.content }}</div>
+            <div class="row">Oluşturulma Tarihi : {{ post.created_date }}</div>
+        </div>
+    </div>
+{% endblock %}
