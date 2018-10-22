@@ -1,0 +1,17 @@
+# Main
+Django
+
+# Image
+Pillow
+
+# Third Party Extensions
+django-ckeditor
+django-crispy-forms
+
+# Debug
+django-extensions
+django-debug-toolbar
+Watchdog
+Werkzeug
+ipython
+ipdb

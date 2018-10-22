@@ -1,8 +1,6 @@
 .idea/
 .vscode/
 __pycache__/
-media/*
-templates/*
 */migrations/0*.*
 db.sqlite3
 *.log
