@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'blog.apps.BlogConfig',
     'user.apps.UserConfig',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,15 @@ DEBUG_TOOLBAR_PANELS = [
 ]
 
 INTERNAL_IPS = ('127.0.0.1')
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}

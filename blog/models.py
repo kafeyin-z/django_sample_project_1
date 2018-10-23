@@ -1,7 +1,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from unidecode import unidecode
-
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -13,7 +13,7 @@ class blogModel(models.Model):
         max_length=100
     )
 
-    content = models.TextField(
+    content = RichTextField(
         null=True,
         blank=False,
         max_length=1000
