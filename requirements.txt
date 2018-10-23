@@ -4,6 +4,9 @@ Django
 # Image
 Pillow
 
+#Other lib
+unidecode
+
 # Third Party Extensions
 django-ckeditor
 django-crispy-forms

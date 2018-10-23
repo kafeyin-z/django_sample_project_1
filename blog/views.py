@@ -22,22 +22,23 @@ def guncelle(request, pk):
     if request.method == "POST":
         form = blogForms(instance=data, data=request.POST, files=request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('blog-listele')
+            post = form.save()
+            return HttpResponseRedirect(reverse('blog-detay', kwargs={'pk': post.pk}))
     context = {'form': form, 'data': data}
     return render(request, 'blog/guncelle.html', context=context)
 
 
 def sil(request, pk):
-    post = blogModel(pk=pk)
+    post = get_object_or_404(blogModel, pk=pk)
     post.delete()
-    return redirect('blog-listele')
+    return HttpResponseRedirect(reverse('blog-listele'))
 
 
 def listele(request):
     model = blogModel.objects.all()
     context = {'posts': model}
     return render(request, 'blog/listele.html', context=context)
+
 
 def detay(request, pk):
     post = get_object_or_404(blogModel, pk=pk)
