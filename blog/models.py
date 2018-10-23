@@ -47,13 +47,28 @@ class blogModel(models.Model):
         else:
             return None
 
+    # Yeni slug üret
     def get_unique_slug(self):
         slug = slugify(unidecode(self.title[0:30]))
-        last_id = blogModel.objects.last().id
+        try:
+            last_id = blogModel.objects.last().id
+        except AttributeError:
+            # Obje yoksa
+            last_id = 0
         now_id = last_id + 1
         slug = "%s-%s" % (slug, now_id)
         return slug
 
+    # Title değişince güncelle
+    def get_update_slug(self):
+        slug = slugify(unidecode(self.title[0:30]))
+        slug = "%s-%s" % (slug, self.id)
+        return slug
+
+
     def save(self, *args, **kwargs):
-        self.slug = self.get_unique_slug()
+        if self.id is not None:
+            self.slug = self.get_update_slug()
+        else:
+            self.slug = self.get_unique_slug()
         super(blogModel, self).save(*args, **kwargs)

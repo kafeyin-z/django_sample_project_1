@@ -6,7 +6,7 @@
             <table class="table table-responsive">
                 {% for post in posts %}
                     <tr>
-                        <td><a href="{% url 'blog-detay' post.pk %}">{{ post.id }}</a></td>
+                        <td><a href="{% url 'blog-detay' post.slug %}">{{ post.id }}</a></td>
                         {% if post.image %}
                             <td><img width="100" height="75" src="{{ post.get_image }}"></td>
                         {% else %}
@@ -17,6 +17,8 @@
                         <td>{{ post.created_date }}</td>
                         <td>{{ post.update_date }}</td>
                     </tr>
+                {% empty %}
+                    <p>Herhangi bir yazı bulunamadı.</p>
                 {% endfor %}
             </table>
         </div>
