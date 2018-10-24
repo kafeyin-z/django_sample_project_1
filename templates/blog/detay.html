@@ -9,7 +9,7 @@
                 <div class="row"><img height="250" src="https://via.placeholder.com/350x150"></div>
             {% endif %}
             <div class="row">Başlık : {{ post.title }}</div>
-            <div class="row">İçerik : {{ post.content|safe }}</div>
+            <div class="row flex-column">İçerik : {{ post.content|safe }}</div>
             <div class="row">Oluşturulma Tarihi : {{ post.created_date }}</div>
             <div class="row">Slug adresi : {{ post.slug }}</div>
         </div>

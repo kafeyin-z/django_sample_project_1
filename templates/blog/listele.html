@@ -13,7 +13,7 @@
                             <td><img width="100" height="75" src="https://via.placeholder.com/100x75"></td>
                         {% endif %}
                         <td>{{ post.title }}</td>
-                        <td>{{ post.content }}</td>
+                        <td>{{ post.content|safe }}</td>
                         <td>{{ post.created_date }}</td>
                         <td>{{ post.update_date }}</td>
                     </tr>
