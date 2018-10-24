@@ -11,7 +11,7 @@ def ekle(request):
         form = blogForms(data=request.POST, files=request.FILES)
         if form.is_valid():
             post = form.save()
-        return HttpResponseRedirect(reverse('blog-detay', kwargs={'slug': post.slug}))
+            return HttpResponseRedirect(reverse('blog-detay', kwargs={'slug': post.slug}))
     context = {'form': form}
     return render(request, 'blog/ekle.html', context=context)
 
